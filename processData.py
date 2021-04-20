@@ -5,7 +5,8 @@ jsonFile = open('src\example.json', 'r')
 data = json.loads(jsonFile.read())
 
 print('--------------------------------------------------')
-print('UUID: ' + data['uuid'])
+print('UUID:', data['uuid'])
+print('Map:', data['map'])
 
 # read true values of human, agent1, and agent2 explorations
 humanSet = set(data['section2']['humanExplored'])
@@ -23,7 +24,7 @@ print('Independent values:\n\tHuman:', len(humanIndependent), '\n\tAgent 1:', le
 
 # get the number of victims and hazards found
 obstacles = data['obstacles']
-numVictims, numHazards  = 0, 0
+numVictims, numHazards = 0, 0
 for i in obstacles:
 	if i['id'] == 'victim' and i['isFound']: numVictims += 1
 	elif i['id'] == 'hazard' and i['isFound']: numHazards += 1
